@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>網頁示例</title>
+    <style>
+        /* 基本樣式 */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Banner樣式 */
+        .banner {
+            background-color: lightblue;
+            color: #000;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* 修改導航器樣式 */
+        .navigator {
+            background-color: #f0f0f0;
+            color: #333;
+            padding: 10px;
+            text-align: left; /* 文字置左 */
+        }
+
+        .navigator ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .navigator li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        .navigator a {
+            text-decoration: none;
+            color: #333;
+            transition: color 0.3s;
+        }
+
+        .navigator a:hover {
+            color: #000;
+        }
+
+        /* 內容樣式 */
+        .content {
+            padding: 20px;
+        }
+
+        /* Section 1 Banner樣式 */
+        #section1 .banner, #section2 .banner {
+            background-color: orange;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* 新增的樣式 */
+        .container {
+            background-color: #ccc;
+            padding: 20px;
+            margin: 0 auto;
+            max-width: 800px;
+            text-align: left;
+        }
+
+        /* Section 1和Section 2之間留白 */
+        #section1, #section2 {
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <h1>這裡是banner</h1>
+    </div>
+
+    <div class="navigator">
+        <ul>
+            <li><a href="#home">首頁</a></li>
+            <li><a href="#section1">區段1</a></li>
+            <li><a href="#section2">區段2</a></li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <section id="home">
+            <h2>首頁</h2>
+            <p>這是首頁的內容。</p>
+        </section>
+        <section id="section1">
+            <div class="banner">
+                <h2>區段1 Banner</h2>
+                <p>這是區段1 Banner的內容。</p>
+            </div>
+            <div class="container">
+                <h2>區段1 Container</h2>
+                <p>這是區段1 Container的內容。</p>
+            </div>
+        </section>
+        <section id="section2">
+            <div class="banner">
+                <h2>區段2 Banner</h2>
+                <p>這是區段2 Banner的內容。</p>
+            </div>
+            <div class="container">
+                <h2>區段2 Container</h2>
+                <p>這是區段2 Container的內容。</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- JavaScript用於平滑滾動 -->
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
